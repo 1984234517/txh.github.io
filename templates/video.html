@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .feather{
+            width:40%;
+            margin: 0px auto;
+            border: 2px solid #5bc0de;
+        }
+        .feather .search{
+            width:70%;
+            margin: 0px auto;
+        }
+        .feather .search input{
+            width:100%;
+            height:30px;
+        }
+        .feather .info_item{
+            width:100%;
+            float: left;
+            border: 1px solid #ac2925;
+        }
+        .info{
+            width:40px;
+            height:30px;
+            border: 1px solid #761c19;
+            float: left;
+            margin-left: 5px;
+            line-height: 30px;
+            text-align: center;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="feather">
+    <form method="post">
+    <div class="search">
+        <input placeholder="请输入你要查找的电视剧名字或者电影名字" name="search_key">
+        <input type="submit" value="查找">
+    </div>
+    </form>
+    <div class="info_item">
+    {% if datas %}
+        {% if datas['statu'] =='0' %}
+        <div class="info">{{ datas['info'] }}</div>
+        {% else %}
+            {% for i in range(1,datas['length']) %}
+                <div class="info"><a href="{{ datas['info'][i] }}"> {{ i }}</a></div>
+            {% endfor %}
+            {% if datas['length']> 2 %}
+                {% if datas['info'][0]=='0' %}
+                    <div>已更新完</div>
+                {% else %}
+                    <div>更新到{{ datas['info'][0] }}集</div>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    </div>
+</div>
+</body>
+</html>

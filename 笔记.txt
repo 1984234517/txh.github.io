@@ -1,0 +1,48 @@
+﻿1 在这个里面出现的Uncaught ReferenceError: newPlay is not defined     at HTMLAnchorElement.onclick
+类型的错误时，是由于js文件中写的js函数不是规范的，导致html在搜素js文件的时候找不到这个js函数
+具体可以参考网址 ： https://blog.csdn.net/ywl570717586/article/details/53130863
+
+
+
+2 关于flask框架创建的web服务器
+  远程服务器中flask的web服务允许被其他机器访问的解决方法：
+ 2.1 启动端口是10200，在本地正常运行,： http://127.0.0.1:10200
+但是放到Linux远程服务器上后，本地不能正常访问远程服务： http://远程IP:10200
+
+
+经查知远程服务器部署需指定 host='0.0.0.0'  , 其他机器才能正常访问远程服务，
+即如下方式
+
+app.run(host='0.0.0.0',port=10200)
+
+指定host后远程服务可被其他任何机器访问。
+ 2.2 需要说明的一点是这个并不需要两台主机之间能ping通，只要两者在同一个局域网中就
+可以了
+
+
+github项目网址:https://github.com/1984234517/music_web1.git
+
+
+ct: 24
+qqmusic_ver: 1298
+new_json: 1
+remoteplace: txt.yqq.song
+searchid: 63682231781232894
+t: 0
+aggr: 1
+cr: 1
+catZhida: 1
+lossless: 0
+flag_qc: 0
+p: 1
+n: 10
+w: 薛之谦
+g_tk: 5381
+loginUin: 0
+hostUin: 0
+format: json
+inCharset: utf8
+outCharset: utf-8
+notice: 0
+platform: yqq.json
+needNewCode: 0
